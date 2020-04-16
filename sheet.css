@@ -29,8 +29,8 @@ input[type=radio].sheet-tab-button.sheet-configure-tab:checked ~ .sheet-page.she
 
 .sheet-display-attr {
     padding: 4px 10px 2px;
-    background: #f5f5f5;
-    border: 1px solid #dddddd;
+    background: #dddddd;
+    border: 1px solid #aaaaaa;
     border-radius: 4px;
     text-align: center;
 }
@@ -53,6 +53,11 @@ input[type=radio].sheet-tab-button.sheet-configure-tab:checked ~ .sheet-page.she
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.sheet-play .sheet-header,
+.sheet-play .sheet-general-rolls {
+    background: #D5C0A9;
 }
 
 .sheet-char-summary {
@@ -115,7 +120,7 @@ input[type=radio].sheet-tab-button.sheet-configure-tab:checked ~ .sheet-page.she
 .sheet-display-attr.sheet-min-width {
     padding: 0;
     border: none;
-    background: white;
+    background: #D5C0A9;
 }
 
 .sheet-general-rolls {
@@ -123,8 +128,18 @@ input[type=radio].sheet-tab-button.sheet-configure-tab:checked ~ .sheet-page.she
     border: 1px solid lightgrey;
     border-radius: 8px;
     display: flex;
+    flex-direction: column;
+}
+
+.sheet-general-rolls .sheet-general-rolls-row {
+    display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+}
+
+.sheet-general-rolls .sheet-general-rolls-row.sheet-not-bottom {
+    margin: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid lightgrey;
 }
 
 .sheet-general-rolls-column.sheet-not-right {

@@ -9,10 +9,10 @@
                     <label>Character Name</label>
                 </div>
                 <div class="xp-section">
-                    <div>
+                    <div class="span-label-box">
                         <input type="hidden" name="attr_level" value="1" />
                         <input type="hidden" name="attr_level_pre_epic" value="1" />
-                        <input type="number" name="attr_foo_level" value="@{level}" disabled="true" />
+                        <span class="display-attr" name="attr_level"></span>
                         <label>Level</label>
                     </div>
                     <div>
@@ -23,17 +23,17 @@
                         <input type="number" name="attr_xp" value="0" />
                         <label>XP</label>
                     </div>
-                    <div class="next-level-at-box">
+                    <div class="next-level-at-box span-label-box">
                         <input type="hidden" name="attr_next_level_xp" value="100" />
-                        <input type="number" name="attr_foo_next_level_xp" value="@{next_level_xp}" disabled="true" />
+                        <span class="display-attr" name="attr_next_level_xp"></span>
                         <label>Next Level At</label>
                     </div>
                 </div>
                 <div class="pools">
                     <div class="vp-box pool-box">
-                        <div>
+                        <div class="span-label-box">
                             <input type="hidden" name="attr_vp_max" value="9" />
-                            <input type="number" name="attr_foo_vp_max" value="@{vp_max}" readonly />
+                            <span class="display-attr" name="attr_vp_max"></span>
                             <label>VP Pool</label>
                         </div>
                         <div class="current-pool-val">
@@ -42,9 +42,9 @@
                         </div>
                     </div>
                     <div class="rp-box pool-box">
-                        <div>
+                        <div class="span-label-box">
                             <input type="hidden" name="attr_rp_max" value="4" />
-                            <input type="number" name="attr_foo_rp_max" value="@{rp_max}" disabled="true" />
+                            <span class="display-attr" name="attr_rp_max"></span>
                             <label>RP Pool</label>
                         </div>
                         <div class="current-pool-val">
@@ -53,9 +53,9 @@
                         </div>
                     </div>
                     <div class="mp-box pool-box">
-                        <div>
+                        <div class="span-label-box">
                             <input type="hidden" name="attr_mp_max" value="0" />
-                            <input type="number" name="attr_foo_mp_max" value="@{mp_max}" readonly />
+                            <span class="display-attr" name="attr_mp_max"></span>
                             <label>MP Pool</label>
                         </div>
                         <div class="current-pool-val">
@@ -103,28 +103,28 @@
             <div class="general-rolls-column not-right">
                 <div class="one-general-roll">
                     <button type="roll" value="/r @{reroll_status} + @{heroic_bonus}" name="roll_heroics_check">Heroics Check</button>
-                    (+<input class="min-width" type="number" name="attr_foo_heroic_bonus" value="@{heroic_bonus}" disabled="true" />)
+                    (+<span class="display-attr min-width" name="attr_heroic_bonus"></span>)
                 </div>
                 <div class="one-general-roll">
                     <input type="hidden" name="attr_awesome_mods" value="{}" />
                     <input type="hidden" name="attr_awesome_mods_total" value="0" />
                     <input type="hidden" name="attr_awesome_bonus" value="5" />
                     <button type="roll" value="/r @{reroll_status} + @{awesome_bonus}" name="roll_awesome_check">Awesome Check</button>
-                    (+<input class="min-width" type="number" name="attr_foo_awesome_bonus" value="@{awesome_bonus}" disabled="true" />)
+                    (+<span class="display-attr min-width" name="attr_awesome_bonus"></span>)
                 </div>
                 <div class="one-general-roll">
                     <input type="hidden" name="attr_spellcraft_mods" value="{}" />
                     <input type="hidden" name="attr_spellcraft_mods_total" value="0" />
                     <input type="hidden" name="attr_spellcraft_check" value="0" />
                     <button type="roll" value="/r @{reroll_status} + @{spellcraft_check}" name="roll_spellcraft_check">Spellcraft</button>
-                    (<input class="min-width" type="number" name="attr_foo_spellcraft_check" value="@{spellcraft_check}" disabled="true" />)
+                    (<span class="display-attr min-width" name="attr_spellcraft_check"></span>)
                 </div>
                 <div class="one-general-roll">
                     <input type="hidden" name="attr_speed_mods" value="{}" />
                     <input type="hidden" name="attr_speed_mods_total" value="0" />
-                    <input type="hidden" name="attr_speed" value="15" />
+                    <input type="hidden" name="attr_speed" value="20" />
                     <button type="roll" value="/r @{reroll_status} + @{speed}" name="roll_speed_check">Speed</button>
-                    (<input class="min-width" type="number" name="attr_foo_speed" value="@{speed}" disabled="true" />)
+                    (<span class="display-attr min-width" name="attr_speed"></span>)
                 </div>
             </div>
             <div class="general-rolls-column">
@@ -133,7 +133,7 @@
                     <input type="hidden" name="attr_defense_mods_total" value="0" />
                     <input type="hidden" name="attr_defense_bonus" value="0" />
                     <button type="roll" value="/r @{reroll_status} + @{defense_bonus}" name="roll_defense_save">Defense</button>
-                    (<input class="min-width" type="number" name="attr_foo_defense_bonus" value="@{defense_bonus}" disabled="true" />)
+                    (<span class="display-attr min-width" name="attr_defense_bonus"></span>)
                 </div>
                 <div class="one-general-roll">
                     <input type="hidden" name="attr_fortitude_base_mods" value='{"base":{"original":{"num":2,"level":1}}}' />
@@ -142,7 +142,7 @@
                     <input type="hidden" name="attr_fortitude_misc_mods_total" value="0" />
                     <input type="hidden" name="attr_fortitude_bonus" value="2" />
                     <button type="roll" value="/r @{reroll_status} + @{fortitude_bonus}" name="roll_fortitude_save">Fortitude</button>
-                    (<input class="min-width" type="number" name="attr_foo_fortitude_bonus" value="@{fortitude_bonus}" disabled="true" />)
+                    (<span class="display-attr min-width" name="attr_fortitude_bonus"></span>)
                 </div>
                 <div class="one-general-roll">
                     <input type="hidden" name="attr_reflex_base_mods" value='{"base":{"original":{"num":0,"level":1}}}' />
@@ -151,7 +151,7 @@
                     <input type="hidden" name="attr_reflex_misc_mods_total" value="0" />
                     <input type="hidden" name="attr_reflex_bonus" value="0" />
                     <button type="roll" value="/r @{reroll_status} + @{reflex_bonus}" name="roll_reflex_save">Reflex</button>
-                    (<input class="min-width" type="number" name="attr_foo_reflex_bonus" value="@{reflex_bonus}" disabled="true" />)
+                    (<span class="display-attr min-width" name="attr_reflex_bonus"></span>)
                     <button type="roll" value="/r @{reroll_status} + @{reflex_bonus} &{tracker}" name="initiative_roll">In.</button>
                 </div>
                 <div class="one-general-roll">
@@ -161,7 +161,7 @@
                     <input type="hidden" name="attr_willpower_misc_mods_total" value="0" />
                     <input type="hidden" name="attr_willpower_bonus" value="0" />
                     <button type="roll" value="/r @{reroll_status} + @{willpower_bonus}" name="roll_willpower_save">Willpower</button>
-                    (<input class="min-width" type="number" name="attr_foo_willpower_bonus" value="@{willpower_bonus}" disabled="true" />)
+                    (<span class="display-attr min-width" name="attr_willpower_bonus"></span>)
                 </div>
             </div>
         </div>
@@ -174,9 +174,9 @@
                     <label>Character Name</label>
                 </div>
                 <div class="xp-section">
-                    <div>
+                    <div class="span-label-box">
                         <input type="hidden" name="attr_level" value="1" />
-                        <input type="number" name="attr_foo_level" value="@{level}" disabled="true" />
+                        <span class="display-attr" name="attr_level"></span>
                         <label>Level</label>
                     </div>
                     <div>
@@ -187,39 +187,40 @@
                         <input type="number" name="attr_xp" value="0" />
                         <label>XP</label>
                     </div>
-                    <div class="next-level-at-box">
+                    <div class="next-level-at-box span-label-box">
                         <input type="hidden" name="attr_next_level_xp" value="100" />
-                        <input type="number" name="attr_foo_next_level_xp" value="@{next_level_xp}" disabled="true" />
+                        <span class="display-attr" name="attr_next_level_xp"></span>
                         <label>Next Level At</label>
                     </div>
                 </div>
                 <div class="pools-max-calc">
                     <div class="vp-calc calc-row">
-                        <div class="total">
-                            <input type="number" name="attr_foo_vp_max" value="@{vp_max}" readonly />
+                        <div class="total span-label-box">
+                            <span class="display-attr" name="attr_vp_max"></span>
                             <label>Vitality<br />Points</label>
                         </div>
                         <div class="equals-symbol">
                             <p>=</p>
                         </div>
-                        <div>
-                            <input type="number" name="attr_foo_double_level" value="2 * @{level_pre_epic}" disabled="true" />
+                        <div class="span-label-box">
+                            <input type="hidden" name="attr_double_level" value="2" />
+                            <span class="display-attr" name="attr_double_level"></span>
                             <label>2x-Level</label>
                         </div>
                         <div class="plus-symbol">
                             <p>+</p>
                         </div>
-                        <div>
+                        <div class="span-label-box">
                             <input type="hidden" name="attr_vp_kits" value="{}" />
                             <input type="hidden" name="attr_vp_kits_total" value="0" />
-                            <input type="number" name="attr_foo_vp_kits_total" value="@{vp_kits_total}" disabled="true" />
+                            <span class="display-attr" name="attr_vp_kits_total"></span>
                             <label>Kits<br />boosts</label>
                         </div>
                         <div class="plus-symbol">
                             <p>+</p>
                         </div>
-                        <div>
-                            <input type="number" name="attr_foo_base_fortitude" value="@{fortitude_base_total}" disabled="true" />
+                        <div class="span-label-box">
+                            <span class="display-attr" name="attr_fortitude_base_total"></span>
                             <label>base<br />Fortitude</label>
                         </div>
                         <div class="plus-symbol">
@@ -230,17 +231,17 @@
                         </div>
                     </div>
                     <div class="rp-calc calc-row">
-                        <div class="total">
-                            <input type="number" name="attr_foo_rp_max" value="@{rp_max}" disabled="true" />
+                        <div class="total span-label-box">
+                            <span class="display-attr" name="attr_rp_max"></span>
                             <label>Reserve<br />Points</label>
                         </div>
                         <div class="equals-symbol">
                             <p>=</p>
                         </div>
-                        <div>
+                        <div class="span-label-box">
                             <input type="hidden" name="attr_reserve_mods" value="{}" />
                             <input type="hidden" name="attr_reserve_mods_total" value="0" />
-                            <input type="number" name="attr_foo_reserve_mods_total" value="@{reserve_mods_total}" disabled="true" />
+                            <span class="display-attr" name="attr_reserve_mods_total"></span>
                             <label>Misc.<br />bonuses</label>
                         </div>
                         <div class="plus-symbol">
@@ -251,24 +252,24 @@
                         </div>
                     </div>
                     <div class="mp-calc calc-row">
-                        <div class="total">
-                            <input type="number" name="attr_foo_mp_max" value="@{mp_max}" readonly />
+                        <div class="total span-label-box">
+                            <span class="display-attr" name="attr_mp_max"></span>
                             <label>Magic<br />Points</label>
                         </div>
                         <div class="equals-symbol">
                             <p>=</p>
                         </div>
-                        <div>
-                            <input type="number" name="attr_foo_caster_level" value="@{caster_level}" disabled="true" />
+                        <div class="span-label-box">
+                            <span class="display-attr" name="attr_caster_level"></span>
                             <label>Caster<br />Level</label>
                         </div>
                         <div class="plus-symbol">
                             <p>+</p>
                         </div>
-                        <div>
+                        <div class="span-label-box">
                             <input type="hidden" name="attr_mp_mods" value="{}" />
                             <input type="hidden" name="attr_mp_mods_total" value="0" />
-                            <input type="number" name="attr_foo_mp_mods_total" value="@{mp_mods_total}" disabled="true" />
+                            <span class="display-attr" name="attr_mp_mods_total"></span>
                             <label>Misc.<br />bonuses</label>
                         </div>
                     </div>
@@ -290,71 +291,71 @@
                 <div class="sub-levels-display">
                     <input type="hidden" name="attr_heroic_bonus" value="0" />
                     <div class="fighting-level">
-                        <div class="total">
+                        <div class="total span-label-box">
                             <input type="hidden" name="attr_fighting_level" value="0" />
-                            <input type="number" name="attr_foo_fighting_level" value="@{fighting_level}" disabled="true" />
+                            <span class="display-attr" name="attr_fighting_level"></span>
                             <label>Fighting<br />Level</label>
                         </div>
                         <div class="equals-symbol">
                             <p>=</p>
                         </div>
-                        <div>
-                            <input type="number" name="attr_foo_heroic_bonus" value="@{heroic_bonus}" disabled="true" />
+                        <div class="span-label-box">
+                            <span class="display-attr" name="attr_heroic_bonus"></span>
                             <label>1/2-Level</label>
                         </div>
                         <div class="plus-symbol">
                             <p>+</p>
                         </div>
-                        <div>
+                        <div class="span-label-box">
                             <input type="hidden" name="attr_fighting_kits" value="{}" />
                             <input type="hidden" name="attr_fighting_kits_total" value="0" />
-                            <input type="number" name="attr_foo_fighting_kits_total" value="@{fighting_kits_total}" disabled="true" />
+                            <span class="display-attr" name="attr_fighting_kits_total"></span>
                             <label>Kits<br />boosts</label>
                         </div>
                     </div>
                     <div class="caster-level">
-                        <div class="total">
+                        <div class="total span-label-box">
                             <input type="hidden" name="attr_caster_level" value="0" />
-                            <input type="number" name="attr_foo_caster_level" value="@{caster_level}" disabled="true" />
+                            <span class="display-attr" name="attr_caster_level"></span>
                             <label>Caster<br />Level</label>
                         </div>
                         <div class="equals-symbol">
                             <p>=</p>
                         </div>
-                        <div>
-                            <input type="number" name="attr_foo_heroic_bonus" value="@{heroic_bonus}" disabled="true" />
+                        <div class="span-label-box">
+                            <span class="display-attr" name="attr_heroic_bonus"></span>
                             <label>1/2-Level</label>
                         </div>
                         <div class="plus-symbol">
                             <p>+</p>
                         </div>
-                        <div>
+                        <div class="span-label-box">
                             <input type="hidden" name="attr_caster_kits" value="{}" />
                             <input type="hidden" name="attr_caster_kits_total" value="0" />
-                            <input type="number" name="attr_foo_caster_kits_total" value="@{caster_kits_total}" disabled="true" />
+                            <span class="display-attr" name="attr_caster_kits_total"></span>
                             <label>Kits<br />boosts</label>
                         </div>
                     </div>
                     <div class="coast-number">
-                        <div class="total">
+                        <div class="total span-label-box">
                             <input type="hidden" name="attr_coast_number" value="6" />
-                            <input type="number" name="attr_foo_coast_number" value="@{coast_number}" disabled="true" />
+                            <span class="display-attr" name="attr_coast_number"></span>
                             <label>Coast<br />Number</label>
                         </div>
                         <div class="equals-symbol">
                             <p>=</p>
                         </div>
-                        <div>
-                            <input type="number" name="attr_foo_heroic_bonus" value="@{heroic_bonus}" disabled="true" />
+                        <div class="span-label-box">
+                            <span class="display-attr" name="attr_heroic_bonus"></span>
                             <label>1/2-Level</label>
                         </div>
                         <div class="plus-symbol">
                             <p>+</p>
                         </div>
-                        <div>
+                        <div class="span-label-box">
                             <input type="hidden" name="attr_coast_kits" value="{}" />
                             <input type="hidden" name="attr_coast_kits_total" value="0" />
-                            <input type="number" name="attr_foo_coast_kits_total" value="@{coast_kits_total}" disabled="true" />
+                            <span class="display-attr" name="attr_coast_kits_total"></span>
                             <label>Kits<br />boosts</label>
                         </div>
                         <div class="plus-symbol">
@@ -365,22 +366,22 @@
                         </div>
                     </div>
                     <div class="awesome-breakdown">
-                        <div class="total">
-                            <input type="number" name="attr_foo_awesome_bonus" value="@{awesome_bonus}" disabled="true" />
+                        <div class="total span-label-box">
+                            <span class="display-attr" name="attr_awesome_bonus"></span>
                             <label>Awesome<br />Check</label>
                         </div>
                         <div class="equals-symbol">
                             <p>=</p>
                         </div>
-                        <div>
-                            <input type="number" name="attr_foo_level" value="@{level_pre_epic}" disabled="true" />
+                        <div class="span-label-box">
+                            <span class="display-attr" name="attr_level_pre_epic"></span>
                             <label>Level</label>
                         </div>
                         <div class="plus-symbol">
                             <p>+</p>
                         </div>
-                        <div>
-                            <input type="number" name="attr_foo_awesome_mods_total" value="@{awesome_mods_total}" disabled="true" />
+                        <div class="span-label-box">
+                            <span class="display-attr" name="attr_awesome_mods_total"></span>
                             <label>Misc.<br />bonuses</label>
                         </div>
                         <div class="plus-symbol">
@@ -477,6 +478,7 @@
                 next_level_xp: totalXP,
                 heroic_bonus: calcHeroicBonus,
                 level_pre_epic: calcLevelPreEpic,
+                double_level: 2 * calcLevelPreEpic,
                 awesome_bonus: calcAwesome,
                 defense_bonus: calcDefense,
                 fortitude_base_total: calcFortitudeBase,

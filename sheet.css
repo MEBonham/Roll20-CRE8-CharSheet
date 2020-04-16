@@ -57,6 +57,7 @@ input[type=radio].sheet-tab-button.sheet-configure-tab:checked ~ .sheet-page.she
 
 .sheet-play .sheet-header,
 .sheet-play .sheet-general-rolls {
+    margin-bottom: 1px;
     background: #D5C0A9;
 }
 

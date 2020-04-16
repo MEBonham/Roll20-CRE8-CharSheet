@@ -1,0 +1,154 @@
+
+.sheet-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.sheet-tab-button {
+    margin-left: 10px;
+}
+
+.sheet-container > span {
+    margin-left: 4px;
+}
+
+.sheet-page {
+    display: none;
+}
+
+input[type=radio].sheet-tab-button.sheet-play-tab:checked ~ .sheet-page.sheet-play,
+input[type=radio].sheet-tab-button.sheet-configure-tab:checked ~ .sheet-page.sheet-configure {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.sheet-header {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sheet-char-summary {
+    display: flex;
+    flex-direction: column;
+}
+
+.sheet-char-name-section input {
+    width: 100%;
+    font-size: 24px;
+}
+
+.sheet-xp-section {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.sheet-xp-section input {
+    min-width: 75px;
+}
+
+.sheet-pools {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.sheet-pool-box {
+    padding: 8px;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sheet-pool-box .sheet-current-pool-val input {
+    font-size: 30px;
+}
+
+.sheet-pool-box .sheet-current-pool-val input {
+    text-align: center;
+}
+
+.sheet-conditions,
+.sheet-configure-overview {
+    margin: 8px;
+    padding: 0 12px;
+    border-left: 1px solid lightgrey;
+}
+
+.sheet-rerolls-bank,
+.sheet-good-save {
+    padding-bottom: 6px;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 6px;
+}
+
+.sheet-min-width {
+    width: 28px;
+    padding-right: 0;
+}
+
+.sheet-general-rolls {
+    padding: 8px;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.sheet-general-rolls-column.sheet-not-right {
+    margin-right: 8px;
+    padding-right: 8px;
+    border-right: 1px solid lightgrey;
+}
+
+.sheet-one-general-roll {
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+}
+
+.sheet-pools-max-calc .sheet-calc-row {
+    margin-top: 14px;
+}
+
+.sheet-sub-levels-display > div,
+.sheet-pools-max-calc > div {
+    display: flex;
+    flex-direction: row;
+}
+
+.sheet-sub-levels-display div input,
+.sheet-pools-max-calc div input {
+    min-width: 75px;
+}
+
+.sheet-sub-levels-display div label,
+.sheet-pools-max-calc div label {
+    text-align: center;
+}
+
+.sheet-equals-symbol,
+.sheet-plus-symbol {
+    margin: 0 4px;
+}
+
+.sheet-equals-symbol p,
+.sheet-plus-symbol p,
+.sheet-big-calc-number p {
+    position: relative;
+    top: 4px;
+    font-weight: bold;
+    font-size: 28px;
+}

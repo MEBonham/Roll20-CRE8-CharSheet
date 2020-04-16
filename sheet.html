@@ -1,0 +1,596 @@
+<div class="container">
+    <input class="tab-button play-tab" type="radio" name="attr_main_tab" value="play" /> <span>PLAY</span>
+    <input class="tab-button configure-tab" type="radio" name="attr_main_tab" value="configure" checked="checked" /> <span>CONFIGURE</span>
+    <div class="page play">
+        <div class="header">    
+            <div class="char-summary">
+                <div class="char-name-section">
+                    <input type="text" name="attr_character_name" />
+                    <label>Character Name</label>
+                </div>
+                <div class="xp-section">
+                    <div>
+                        <input type="hidden" name="attr_level" value="1" />
+                        <input type="hidden" name="attr_level_pre_epic" value="1" />
+                        <input type="number" name="attr_foo_level" value="@{level}" disabled="true" />
+                        <label>Level</label>
+                    </div>
+                    <div>
+                        <input type="text" name="attr_epithet" value="" />
+                        <label>Epithet</label>
+                    </div>
+                    <div>
+                        <input type="number" name="attr_xp" value="0" />
+                        <label>XP</label>
+                    </div>
+                    <div class="next-level-at-box">
+                        <input type="hidden" name="attr_next_level_xp" value="100" />
+                        <input type="number" name="attr_foo_next_level_xp" value="@{next_level_xp}" disabled="true" />
+                        <label>Next Level At</label>
+                    </div>
+                </div>
+                <div class="pools">
+                    <div class="vp-box pool-box">
+                        <div>
+                            <input type="hidden" name="attr_vp_max" value="9" />
+                            <input type="number" name="attr_foo_vp_max" value="@{vp_max}" readonly />
+                            <label>VP Pool</label>
+                        </div>
+                        <div class="current-pool-val">
+                            <input type="number" name="attr_vp" value="9" />
+                            <label>Current VP</label>
+                        </div>
+                    </div>
+                    <div class="rp-box pool-box">
+                        <div>
+                            <input type="hidden" name="attr_rp_max" value="4" />
+                            <input type="number" name="attr_foo_rp_max" value="@{rp_max}" disabled="true" />
+                            <label>RP Pool</label>
+                        </div>
+                        <div class="current-pool-val">
+                            <input type="number" name="attr_rp" value="4" />
+                            <label>Current RP</label>
+                        </div>
+                    </div>
+                    <div class="mp-box pool-box">
+                        <div>
+                            <input type="hidden" name="attr_mp_max" value="0" />
+                            <input type="number" name="attr_foo_mp_max" value="@{mp_max}" readonly />
+                            <label>MP Pool</label>
+                        </div>
+                        <div class="current-pool-val">
+                            <input type="number" name="attr_mp" value="0" />
+                            <label>Current MP</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="conditions">
+                <div class="rerolls-bank">
+                    <div>
+                        <input type="radio" name="attr_reroll_status" value="2d20k1" /> Boosted
+                    </div>
+                    <div>
+                        <input type="radio" name="attr_reroll_status" value="3d20dh1kh2" checked="checked" /> Normal
+                    </div>
+                    <div>
+                        <input type="radio" name="attr_reroll_status" value="2d20dh1" /> Dragged
+                    </div>
+                    <div>
+                        <input type="radio" name="attr_reroll_status" value="1d20" /> Boosted & Dragged
+                    </div>
+                    <div>
+                        <input type="checkbox" name="attr_coasting_status" value="1" /> Coasting
+                    </div>
+                </div>
+                <div class="basic-conditions-bank">
+                    <div>
+                        <input type="checkbox" name="attr_momentum_status" value="1" /> Momentum
+                    </div>
+                    <div>
+                        <input type="checkbox" name="attr_exertion_status" value="1" /> Exerted
+                    </div>
+                    <div>
+                        <input type="checkbox" name="attr_wounded_status" value="1" /> Wounded
+                    </div>
+                    <div>
+                        <input type="checkbox" name="attr_dying_status" value="1" /> Dying
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="general-rolls">
+            <div class="general-rolls-column not-right">
+                <div class="one-general-roll">
+                    <button type="roll" value="/r @{reroll_status} + @{heroic_bonus}" name="roll_heroics_check">Heroics Check</button>
+                    (+<input class="min-width" type="number" name="attr_foo_heroic_bonus" value="@{heroic_bonus}" disabled="true" />)
+                </div>
+                <div class="one-general-roll">
+                    <input type="hidden" name="attr_awesome_mods" value="{}" />
+                    <input type="hidden" name="attr_awesome_mods_total" value="0" />
+                    <input type="hidden" name="attr_awesome_bonus" value="5" />
+                    <button type="roll" value="/r @{reroll_status} + @{awesome_bonus}" name="roll_awesome_check">Awesome Check</button>
+                    (+<input class="min-width" type="number" name="attr_foo_awesome_bonus" value="@{awesome_bonus}" disabled="true" />)
+                </div>
+                <div class="one-general-roll">
+                    <input type="hidden" name="attr_spellcraft_mods" value="{}" />
+                    <input type="hidden" name="attr_spellcraft_mods_total" value="0" />
+                    <input type="hidden" name="attr_spellcraft_check" value="0" />
+                    <button type="roll" value="/r @{reroll_status} + @{spellcraft_check}" name="roll_spellcraft_check">Spellcraft</button>
+                    (<input class="min-width" type="number" name="attr_foo_spellcraft_check" value="@{spellcraft_check}" disabled="true" />)
+                </div>
+                <div class="one-general-roll">
+                    <input type="hidden" name="attr_speed_mods" value="{}" />
+                    <input type="hidden" name="attr_speed_mods_total" value="0" />
+                    <input type="hidden" name="attr_speed" value="15" />
+                    <button type="roll" value="/r @{reroll_status} + @{speed}" name="roll_speed_check">Speed</button>
+                    (<input class="min-width" type="number" name="attr_foo_speed" value="@{speed}" disabled="true" />)
+                </div>
+            </div>
+            <div class="general-rolls-column">
+                <div class="one-general-roll">
+                    <input type="hidden" name="attr_defense_mods" value="{}" />
+                    <input type="hidden" name="attr_defense_mods_total" value="0" />
+                    <input type="hidden" name="attr_defense_bonus" value="0" />
+                    <button type="roll" value="/r @{reroll_status} + @{defense_bonus}" name="roll_defense_save">Defense</button>
+                    (<input class="min-width" type="number" name="attr_foo_defense_bonus" value="@{defense_bonus}" disabled="true" />)
+                </div>
+                <div class="one-general-roll">
+                    <input type="hidden" name="attr_fortitude_base_mods" value='{"base":{"original":{"num":2,"level":1}}}' />
+                    <input type="hidden" name="attr_fortitude_base_total" value="2" />
+                    <input type="hidden" name="attr_fortitude_misc_mods" value="{}" />
+                    <input type="hidden" name="attr_fortitude_misc_mods_total" value="0" />
+                    <input type="hidden" name="attr_fortitude_bonus" value="2" />
+                    <button type="roll" value="/r @{reroll_status} + @{fortitude_bonus}" name="roll_fortitude_save">Fortitude</button>
+                    (<input class="min-width" type="number" name="attr_foo_fortitude_bonus" value="@{fortitude_bonus}" disabled="true" />)
+                </div>
+                <div class="one-general-roll">
+                    <input type="hidden" name="attr_reflex_base_mods" value='{"base":{"original":{"num":0,"level":1}}}' />
+                    <input type="hidden" name="attr_reflex_base_total" value="0" />
+                    <input type="hidden" name="attr_reflex_misc_mods" value="{}" />
+                    <input type="hidden" name="attr_reflex_misc_mods_total" value="0" />
+                    <input type="hidden" name="attr_reflex_bonus" value="0" />
+                    <button type="roll" value="/r @{reroll_status} + @{reflex_bonus}" name="roll_reflex_save">Reflex</button>
+                    (<input class="min-width" type="number" name="attr_foo_reflex_bonus" value="@{reflex_bonus}" disabled="true" />)
+                    <button type="roll" value="/r @{reroll_status} + @{reflex_bonus} &{tracker}" name="initiative_roll">In.</button>
+                </div>
+                <div class="one-general-roll">
+                    <input type="hidden" name="attr_willpower_base_mods" value='{"base":{"original":{"num":0,"level":1}}}' />
+                    <input type="hidden" name="attr_willpower_base_total" value="0" />
+                    <input type="hidden" name="attr_willpower_misc_mods" value="{}" />
+                    <input type="hidden" name="attr_willpower_misc_mods_total" value="0" />
+                    <input type="hidden" name="attr_willpower_bonus" value="0" />
+                    <button type="roll" value="/r @{reroll_status} + @{willpower_bonus}" name="roll_willpower_save">Willpower</button>
+                    (<input class="min-width" type="number" name="attr_foo_willpower_bonus" value="@{willpower_bonus}" disabled="true" />)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page configure">
+        <div class="header">    
+            <div class="char-summary">
+                <div class="char-name-section">
+                    <input type="text" name="attr_character_name" />
+                    <label>Character Name</label>
+                </div>
+                <div class="xp-section">
+                    <div>
+                        <input type="hidden" name="attr_level" value="1" />
+                        <input type="number" name="attr_foo_level" value="@{level}" disabled="true" />
+                        <label>Level</label>
+                    </div>
+                    <div>
+                        <input type="text" name="attr_epithet" value="" />
+                        <label>Epithet</label>
+                    </div>
+                    <div>
+                        <input type="number" name="attr_xp" value="0" />
+                        <label>XP</label>
+                    </div>
+                    <div class="next-level-at-box">
+                        <input type="hidden" name="attr_next_level_xp" value="100" />
+                        <input type="number" name="attr_foo_next_level_xp" value="@{next_level_xp}" disabled="true" />
+                        <label>Next Level At</label>
+                    </div>
+                </div>
+                <div class="pools-max-calc">
+                    <div class="vp-calc calc-row">
+                        <div class="total">
+                            <input type="number" name="attr_foo_vp_max" value="@{vp_max}" readonly />
+                            <label>Vitality<br />Points</label>
+                        </div>
+                        <div class="equals-symbol">
+                            <p>=</p>
+                        </div>
+                        <div>
+                            <input type="number" name="attr_foo_double_level" value="2 * @{level_pre_epic}" disabled="true" />
+                            <label>2x-Level</label>
+                        </div>
+                        <div class="plus-symbol">
+                            <p>+</p>
+                        </div>
+                        <div>
+                            <input type="hidden" name="attr_vp_kits" value="{}" />
+                            <input type="hidden" name="attr_vp_kits_total" value="0" />
+                            <input type="number" name="attr_foo_vp_kits_total" value="@{vp_kits_total}" disabled="true" />
+                            <label>Kits<br />boosts</label>
+                        </div>
+                        <div class="plus-symbol">
+                            <p>+</p>
+                        </div>
+                        <div>
+                            <input type="number" name="attr_foo_base_fortitude" value="@{fortitude_base_total}" disabled="true" />
+                            <label>base<br />Fortitude</label>
+                        </div>
+                        <div class="plus-symbol">
+                            <p>+</p>
+                        </div>
+                        <div class="big-calc-number">
+                            <p>5</p>
+                        </div>
+                    </div>
+                    <div class="rp-calc calc-row">
+                        <div class="total">
+                            <input type="number" name="attr_foo_rp_max" value="@{rp_max}" disabled="true" />
+                            <label>Reserve<br />Points</label>
+                        </div>
+                        <div class="equals-symbol">
+                            <p>=</p>
+                        </div>
+                        <div>
+                            <input type="hidden" name="attr_reserve_mods" value="{}" />
+                            <input type="hidden" name="attr_reserve_mods_total" value="0" />
+                            <input type="number" name="attr_foo_reserve_mods_total" value="@{reserve_mods_total}" disabled="true" />
+                            <label>Misc.<br />bonuses</label>
+                        </div>
+                        <div class="plus-symbol">
+                            <p>+</p>
+                        </div>
+                        <div class="big-calc-number">
+                            <p>4</p>
+                        </div>
+                    </div>
+                    <div class="mp-calc calc-row">
+                        <div class="total">
+                            <input type="number" name="attr_foo_mp_max" value="@{mp_max}" readonly />
+                            <label>Magic<br />Points</label>
+                        </div>
+                        <div class="equals-symbol">
+                            <p>=</p>
+                        </div>
+                        <div>
+                            <input type="number" name="attr_foo_caster_level" value="@{caster_level}" disabled="true" />
+                            <label>Caster<br />Level</label>
+                        </div>
+                        <div class="plus-symbol">
+                            <p>+</p>
+                        </div>
+                        <div>
+                            <input type="hidden" name="attr_mp_mods" value="{}" />
+                            <input type="hidden" name="attr_mp_mods_total" value="0" />
+                            <input type="number" name="attr_foo_mp_mods_total" value="@{mp_mods_total}" disabled="true" />
+                            <label>Misc.<br />bonuses</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="configure-overview">
+                <div class="good-save">
+                    <h3>Good Save</h3>
+                    <div>
+                        <input type="radio" name="attr_good_save" value="fortitude" checked="checked" /> Fortitude
+                    </div>
+                    <div>
+                        <input type="radio" name="attr_good_save" value="reflex" /> Reflex
+                    </div>
+                    <div>
+                        <input type="radio" name="attr_good_save" value="willpower" /> Willpower
+                    </div>
+                </div>
+                <div class="sub-levels-display">
+                    <input type="hidden" name="attr_heroic_bonus" value="0" />
+                    <div class="fighting-level">
+                        <div class="total">
+                            <input type="hidden" name="attr_fighting_level" value="0" />
+                            <input type="number" name="attr_foo_fighting_level" value="@{fighting_level}" disabled="true" />
+                            <label>Fighting<br />Level</label>
+                        </div>
+                        <div class="equals-symbol">
+                            <p>=</p>
+                        </div>
+                        <div>
+                            <input type="number" name="attr_foo_heroic_bonus" value="@{heroic_bonus}" disabled="true" />
+                            <label>1/2-Level</label>
+                        </div>
+                        <div class="plus-symbol">
+                            <p>+</p>
+                        </div>
+                        <div>
+                            <input type="hidden" name="attr_fighting_kits" value="{}" />
+                            <input type="hidden" name="attr_fighting_kits_total" value="0" />
+                            <input type="number" name="attr_foo_fighting_kits_total" value="@{fighting_kits_total}" disabled="true" />
+                            <label>Kits<br />boosts</label>
+                        </div>
+                    </div>
+                    <div class="caster-level">
+                        <div class="total">
+                            <input type="hidden" name="attr_caster_level" value="0" />
+                            <input type="number" name="attr_foo_caster_level" value="@{caster_level}" disabled="true" />
+                            <label>Caster<br />Level</label>
+                        </div>
+                        <div class="equals-symbol">
+                            <p>=</p>
+                        </div>
+                        <div>
+                            <input type="number" name="attr_foo_heroic_bonus" value="@{heroic_bonus}" disabled="true" />
+                            <label>1/2-Level</label>
+                        </div>
+                        <div class="plus-symbol">
+                            <p>+</p>
+                        </div>
+                        <div>
+                            <input type="hidden" name="attr_caster_kits" value="{}" />
+                            <input type="hidden" name="attr_caster_kits_total" value="0" />
+                            <input type="number" name="attr_foo_caster_kits_total" value="@{caster_kits_total}" disabled="true" />
+                            <label>Kits<br />boosts</label>
+                        </div>
+                    </div>
+                    <div class="coast-number">
+                        <div class="total">
+                            <input type="hidden" name="attr_coast_number" value="6" />
+                            <input type="number" name="attr_foo_coast_number" value="@{coast_number}" disabled="true" />
+                            <label>Coast<br />Number</label>
+                        </div>
+                        <div class="equals-symbol">
+                            <p>=</p>
+                        </div>
+                        <div>
+                            <input type="number" name="attr_foo_heroic_bonus" value="@{heroic_bonus}" disabled="true" />
+                            <label>1/2-Level</label>
+                        </div>
+                        <div class="plus-symbol">
+                            <p>+</p>
+                        </div>
+                        <div>
+                            <input type="hidden" name="attr_coast_kits" value="{}" />
+                            <input type="hidden" name="attr_coast_kits_total" value="0" />
+                            <input type="number" name="attr_foo_coast_kits_total" value="@{coast_kits_total}" disabled="true" />
+                            <label>Kits<br />boosts</label>
+                        </div>
+                        <div class="plus-symbol">
+                            <p>+</p>
+                        </div>
+                        <div class="big-calc-number">
+                            <p>6</p>
+                        </div>
+                    </div>
+                    <div class="awesome-breakdown">
+                        <div class="total">
+                            <input type="number" name="attr_foo_awesome_bonus" value="@{awesome_bonus}" disabled="true" />
+                            <label>Awesome<br />Check</label>
+                        </div>
+                        <div class="equals-symbol">
+                            <p>=</p>
+                        </div>
+                        <div>
+                            <input type="number" name="attr_foo_level" value="@{level_pre_epic}" disabled="true" />
+                            <label>Level</label>
+                        </div>
+                        <div class="plus-symbol">
+                            <p>+</p>
+                        </div>
+                        <div>
+                            <input type="number" name="attr_foo_awesome_mods_total" value="@{awesome_mods_total}" disabled="true" />
+                            <label>Misc.<br />bonuses</label>
+                        </div>
+                        <div class="plus-symbol">
+                            <p>+</p>
+                        </div>
+                        <div class="big-calc-number">
+                            <p>4</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/worker">
+
+    mineModifiers = function(modsJSON) {
+        let total = 0;
+        modsObj = JSON.parse(modsJSON);
+        const bonusTypes = Object.keys(modsObj);
+        bonusTypes.forEach(type => {
+            const sources = Object.keys(modsObj[type]);
+            if (type == "circumstance") {
+                sources.forEach(source => {
+                    total += modsObj[type][source];
+                });
+            } else {
+                let bestSoFar = 0;
+                sources.forEach(source => {
+                    mod = modsObj[type][source].num;
+                    if (mod < 0) {
+                        total += mod;
+                    } else if (mod > bestSoFar) {
+                        bestSoFar = mod;
+                    }
+                });
+                total += bestSoFar;
+            }
+        });
+        return total;
+    }
+
+    on("change:xp", function(eventInfo) {
+        let calcLevel = 1;
+        let totalXP = 100;
+        if (eventInfo.newValue >= 0) {
+            calcLevel = 0;
+            totalXP = 0;
+            while (eventInfo.newValue >= totalXP) {
+                calcLevel += 1;
+                let increment = 100 * calcLevel;
+                if (increment > 800) {
+                    increment = 500;
+                }
+                totalXP += increment;
+            }
+        }
+        
+        const calcHeroicBonus = Math.min(4, Math.floor(calcLevel / 2));
+        const calcLevelPreEpic = Math.min(8, calcLevel);
+
+        getAttrs(["awesome_mods", "defense_mods_total", "fortitude_base_mods", "fortitude_misc_mods_total", "reflex_base_mods", "reflex_misc_mods_total", 
+            "willpower_base_mods", "willpower_misc_mods_total", "fighting_kits_total", "caster_kits_total", "coast_kits_total", "vp_max", "vp", "vp_kits_total", 
+            "mp_max", "mp", "mp_mods_total", "spellcraft_mods_total"
+        ], function(values) {
+            
+            const calcAwesome = 4 + calcLevelPreEpic + mineModifiers(values.awesome_mods);
+
+            const calcDefense = calcHeroicBonus + parseInt(values.defense_mods_total);
+            const calcFortitudeBase = calcHeroicBonus + mineModifiers(values.fortitude_base_mods);
+            const calcFortitude = calcFortitudeBase + parseInt(values.fortitude_misc_mods_total);
+            const calcReflexBase = calcHeroicBonus + mineModifiers(values.reflex_base_mods);
+            const calcReflex = calcReflexBase + parseInt(values.reflex_misc_mods_total);
+            const calcWillpowerBase = calcHeroicBonus + mineModifiers(values.willpower_base_mods);
+            const calcWillpower = calcWillpowerBase + parseInt(values.willpower_misc_mods_total);
+
+            const calcFightingLevel = calcHeroicBonus + parseInt(values.fighting_kits_total);
+            const calcCasterLevel = calcHeroicBonus + parseInt(values.caster_kits_total);
+            const calcCoastNumber = 6 + calcHeroicBonus + parseInt(values.coast_kits_total);
+
+            const calcVpMax = 5 + (2 * calcLevelPreEpic) + calcFortitudeBase + parseInt(values.vp_kits_total);
+            const deltaVp = calcVpMax - parseInt(values.vp_max);
+            const calcVp = Math.max(0, parseInt(values.vp) + deltaVp);
+
+            const calcMpMax = calcCasterLevel + parseInt(values.mp_mods_total);
+            const deltaMp = calcMpMax - parseInt(values.mp_max);
+            const calcMp = Math.max(0, parseInt(values.mp) + deltaMp);
+
+            const calcSpellcraft = calcCasterLevel + parseInt(values.spellcraft_mods_total);
+
+            setAttrs({
+                level: calcLevel,
+                next_level_xp: totalXP,
+                heroic_bonus: calcHeroicBonus,
+                level_pre_epic: calcLevelPreEpic,
+                awesome_bonus: calcAwesome,
+                defense_bonus: calcDefense,
+                fortitude_base_total: calcFortitudeBase,
+                fortitude_bonus: calcFortitude,
+                reflex_base_total: calcReflexBase,
+                reflex_bonus: calcReflex,
+                willpower_base_total: calcWillpowerBase,
+                willpower_bonus: calcWillpower,
+                fighting_level: calcFightingLevel,
+                caster_level: calcCasterLevel,
+                coast_number: calcCoastNumber,
+                vp_max: calcVpMax,
+                vp: calcVp,
+                mp_max: calcMpMax,
+                mp: calcMp,
+                spellcraft_check: calcSpellcraft
+            });
+        });
+    });
+
+    on("change:good_save", function(eventInfo) {
+        getAttrs(["level_pre_epic", "heroic_bonus", "fortitude_base_mods", "fortitude_misc_mods_total", "reflex_base_mods", "reflex_misc_mods_total", 
+            "willpower_base_mods", "willpower_misc_mods_total", "vp_max", "vp", "vp_kits_total"
+        ], function (values) {
+
+            let fortModsObj = JSON.parse(values.fortitude_base_mods);
+            fortModsObj = {
+                base: {},
+                ...fortModsObj
+            }
+            let refModsObj = JSON.parse(values.reflex_base_mods);
+            refModsObj = {
+                base: {},
+                ...refModsObj
+            }
+            let willModsObj = JSON.parse(values.willpower_base_mods);
+            willModsObj = {
+                base: {},
+                ...willModsObj
+            }
+
+            if (eventInfo.newValue == "fortitude") {
+                fortModsObj.base.original = {
+                    num: 2,
+                    level: 1
+                };
+                refModsObj.base.original = {
+                    num: 0,
+                    level: 1
+                };
+                willModsObj.base.original = {
+                    num: 0,
+                    level: 1
+                };
+            }
+
+            if (eventInfo.newValue == "reflex") {
+                fortModsObj.base.original = {
+                    num: 0,
+                    level: 1
+                };
+                refModsObj.base.original = {
+                    num: 2,
+                    level: 1
+                };
+                willModsObj.base.original = {
+                    num: 0,
+                    level: 1
+                };
+            }
+
+            if (eventInfo.newValue == "willpower") {
+                fortModsObj.base.original = {
+                    num: 0,
+                    level: 1
+                };
+                refModsObj.base.original = {
+                    num: 0,
+                    level: 1
+                };
+                willModsObj.base.original = {
+                    num: 2,
+                    level: 1
+                };
+            }
+
+            const calcFortBaseTotal = values.heroic_bonus + mineModifiers(JSON.stringify(fortModsObj));
+            const calcRefBaseTotal = values.heroic_bonus + mineModifiers(JSON.stringify(refModsObj));
+            const calcWillBaseTotal = values.heroic_bonus + mineModifiers(JSON.stringify(willModsObj));
+
+            const calcFortitude = calcFortBaseTotal + parseInt(values.fortitude_misc_mods_total);
+            const calcReflex = calcRefBaseTotal + parseInt(values.reflex_misc_mods_total);
+            const calcWillpower = calcWillBaseTotal + parseInt(values.willpower_misc_mods_total);
+
+            console.log(5, 2 * parseInt(values.level_pre_epic), calcFortBaseTotal, parseInt(values.vp_kits_total));
+            const calcVpMax = 5 + (2 * parseInt(values.level_pre_epic)) + calcFortBaseTotal + parseInt(values.vp_kits_total);
+            console.log(calcVpMax);
+            const deltaVp = calcVpMax - parseInt(values.vp_max);
+            const calcVp = Math.max(0, parseInt(values.vp) + deltaVp);
+
+            setAttrs({
+                fortitude_base_mods: JSON.stringify(fortModsObj),
+                fortitude_base_total: calcFortBaseTotal,
+                fortitude_bonus: calcFortitude,
+                reflex_base_mods: JSON.stringify(refModsObj),
+                reflex_base_total: calcRefBaseTotal,
+                reflex_bonus: calcReflex,
+                willpower_base_mods: JSON.stringify(willModsObj),
+                willpower_base_total: calcWillBaseTotal,
+                willpower_bonus: calcWillpower,
+                vp_max: calcVpMax,
+                vp: calcVp
+            });
+        });
+    });
+
+</script>

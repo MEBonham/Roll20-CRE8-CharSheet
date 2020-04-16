@@ -104,28 +104,28 @@
                 <div class="general-rolls-column not-right">
                     <div class="one-general-roll">
                         <button type="roll" value="/r @{reroll_status} + @{heroic_bonus}" name="roll_heroics_check">Heroics Check</button>
-                        (+<span class="display-attr min-width" name="attr_heroic_bonus"></span>)
+                        (+<span class="display-attr shortfield" name="attr_heroic_bonus"></span>)
                     </div>
                     <div class="one-general-roll">
                         <input type="hidden" name="attr_awesome_mods" value="{}" />
                         <input type="hidden" name="attr_awesome_mods_total" value="0" />
                         <input type="hidden" name="attr_awesome_bonus" value="5" />
                         <button type="roll" value="/r @{reroll_status} + @{awesome_bonus}" name="roll_awesome_check">Awesome Check</button>
-                        (+<span class="display-attr min-width" name="attr_awesome_bonus"></span>)
+                        (+<span class="display-attr shortfield" name="attr_awesome_bonus"></span>)
                     </div>
                     <div class="one-general-roll">
                         <input type="hidden" name="attr_spellcraft_mods" value="{}" />
                         <input type="hidden" name="attr_spellcraft_mods_total" value="0" />
                         <input type="hidden" name="attr_spellcraft_check" value="0" />
                         <button type="roll" value="/r @{reroll_status} + @{spellcraft_check}" name="roll_spellcraft_check">Spellcraft</button>
-                        (<span class="display-attr min-width" name="attr_spellcraft_check"></span>)
+                        (<span class="display-attr shortfield" name="attr_spellcraft_check"></span>)
                     </div>
                     <div class="one-general-roll">
                         <input type="hidden" name="attr_speed_mods" value="{}" />
                         <input type="hidden" name="attr_speed_mods_total" value="0" />
                         <input type="hidden" name="attr_speed" value="20" />
                         <button type="roll" value="/r @{reroll_status} + @{speed}" name="roll_speed_check">Speed</button>
-                        (<span class="display-attr min-width" name="attr_speed"></span>)
+                        (<span class="display-attr shortfield" name="attr_speed"></span>)
                     </div>
                 </div>
                 <div class="general-rolls-column">
@@ -134,7 +134,7 @@
                         <input type="hidden" name="attr_defense_mods_total" value="0" />
                         <input type="hidden" name="attr_defense_bonus" value="0" />
                         <button type="roll" value="/r @{reroll_status} + @{defense_bonus}" name="roll_defense_save">Defense</button>
-                        (<span class="display-attr min-width" name="attr_defense_bonus"></span>)
+                        (<span class="display-attr shortfield" name="attr_defense_bonus"></span>)
                     </div>
                     <div class="one-general-roll">
                         <input type="hidden" name="attr_fortitude_base_mods" value='{"base":{"original":{"num":2,"level":1}}}' />
@@ -143,7 +143,7 @@
                         <input type="hidden" name="attr_fortitude_misc_mods_total" value="0" />
                         <input type="hidden" name="attr_fortitude_bonus" value="2" />
                         <button type="roll" value="/r @{reroll_status} + @{fortitude_bonus}" name="roll_fortitude_save">Fortitude</button>
-                        (<span class="display-attr min-width" name="attr_fortitude_bonus"></span>)
+                        (<span class="display-attr shortfield" name="attr_fortitude_bonus"></span>)
                     </div>
                     <div class="one-general-roll">
                         <input type="hidden" name="attr_reflex_base_mods" value='{"base":{"original":{"num":0,"level":1}}}' />
@@ -152,7 +152,7 @@
                         <input type="hidden" name="attr_reflex_misc_mods_total" value="0" />
                         <input type="hidden" name="attr_reflex_bonus" value="0" />
                         <button type="roll" value="/r @{reroll_status} + @{reflex_bonus}" name="roll_reflex_save">Reflex</button>
-                        (<span class="display-attr min-width" name="attr_reflex_bonus"></span>)
+                        (<span class="display-attr shortfield" name="attr_reflex_bonus"></span>)
                         <button type="roll" value="/r @{reroll_status} + @{reflex_bonus} &{tracker}" name="initiative_roll">In.</button>
                     </div>
                     <div class="one-general-roll">
@@ -162,7 +162,7 @@
                         <input type="hidden" name="attr_willpower_misc_mods_total" value="0" />
                         <input type="hidden" name="attr_willpower_bonus" value="0" />
                         <button type="roll" value="/r @{reroll_status} + @{willpower_bonus}" name="roll_willpower_save">Willpower</button>
-                        (<span class="display-attr min-width" name="attr_willpower_bonus"></span>)
+                        (<span class="display-attr shortfield" name="attr_willpower_bonus"></span>)
                     </div>
                 </div>
             </div>

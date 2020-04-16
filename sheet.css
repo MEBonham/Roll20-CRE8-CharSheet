@@ -117,7 +117,7 @@ input[type=radio].sheet-tab-button.sheet-configure-tab:checked ~ .sheet-page.she
     margin-bottom: 6px;
 }
 
-.sheet-display-attr.sheet-min-width {
+.sheet-display-attr.sheet-shortfield {
     padding: 0;
     border: none;
     background: #D5C0A9;
